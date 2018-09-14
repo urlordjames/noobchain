@@ -1,17 +1,18 @@
 <?php
-	function writefile($input, $name)
-	{
-		$file = fopen($name, w);
-		fwrite($file, $input + "\n");
-		fclose($file);
-	}
 	$message = "first message";
-	$hash1 = "db01a79b2801d711bc69a0ad143def4bca4b5e4e6f1d7d63492590607b14ea35";
+	$hash1 = hash("sha256", $message);
 	$ranint = rand(0, 100000000000);
 	$ranhash = hash("sha256", $ranint);
+	function writefile($input, $name)
+	{
+		$file = fopen($name, "w");
+		fwrite($file, $input . "\n");
+		fclose($file);
+	}
 	writefile($message, "messages.bc");
 	writefile($hash1, "hashes.bc");
 	writefile($ranhash, "guesses.bc");
+	echo($ranhash);
 ?>
 <html>
 	<head>
