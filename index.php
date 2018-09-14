@@ -1,6 +1,6 @@
 <?php
 	$mfile = fopen("messages.bc", r);
-	$messages = fread($mfile, filesize("messages.blockchain"));
+	$messages = fread($mfile, filesize("messages.bc"));
 	fclose($mfile);
 	echo($messages . "<br>");
 ?>
