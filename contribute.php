@@ -2,7 +2,7 @@
 	//TODO: test
 	$posnum = $_GET["num"];
 	$message = $_GET["message"];
-	if (!isset($posnum) || !isset($message) || strlen($message) > 100)
+	if (!isset($posnum) || !isset($message) || !strlen($message) > 100)
 	{
 		echo("leave");
 		exit();
@@ -22,9 +22,6 @@
 	}
 	function readfile3($name, $i)
 	{
-		//$file = fopen($name, "r");
-		//$contents = fread($file, filesize($name));
-		//fclose($file);
 		$file = new SplFileObject($name);
 		$file->seek($i);
 		$contents = $file->current();
@@ -40,7 +37,7 @@
 	}
 	$hash1 = hash("sha256", $message);
 	$ranhash = hash("sha256", $posnum);
-	if (readfile2(guesses.bc) == $ranhash)
+	if (readfile2("guesses.bc") == $ranhash)
 	{
 		writefile($message, "messages.bc");
 		writefile($hash1, "hashes.bc");
@@ -48,7 +45,8 @@
 	}
 	else
 	{
-		echo("hash mismatch");
+		echo(readfile2("guesses.bc") . "<br>" . $ranhash);
+		echo("<br>hash mismatch");
 		exit();
 	}
 	echo($ranhash);

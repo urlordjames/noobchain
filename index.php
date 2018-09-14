@@ -1,5 +1,5 @@
 <?php
-	$mfile = fopen("messages.blockchain", r);
+	$mfile = fopen("messages.bc", r);
 	$messages = fread($mfile, filesize("messages.blockchain"));
 	fclose($mfile);
 	echo($messages . "<br>");
