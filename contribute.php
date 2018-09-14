@@ -13,6 +13,12 @@
 		fwrite($file, $input . "\n");
 		fclose($file);
 	}
+	function writefile2($input, $name)
+	{
+		$file = fopen($name, "w");
+		fwrite($file, $input);
+		fclose($file);
+	}
 		function readfile2($name)
 	{
 		$file = fopen($name, "r");
@@ -41,7 +47,7 @@
 	{
 		writefile($message, "messages.bc");
 		writefile($hash1, "hashes.bc");
-		writefile(rand(0, 100000000000), "guesses.bc");
+		writefile2(hash("sha256", rand(0, 100000000000)), "guesses.bc");
 	}
 	else
 	{
