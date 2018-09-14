@@ -1,9 +1,8 @@
 <?php
-	$mfile = fopen("messages.blockchain");
-	$messages = fread($mfile);
+	$mfile = fopen("messages.blockchain", r);
+	$messages = fread($mfile, filesize("messages.blockchain"));
 	fclose($mfile);
-	$data = json_decode($messages)
-	echo($data);
+	echo($messages . "<br>");
 ?>
 <html>
 	<head>
@@ -11,6 +10,6 @@
 		<link rel="shortcut icon" type="image/x-icon" href="https://urlordjames.ga/favicon.ico">
 	</head>
 	<body>
-		welcome
+		welcome my friends
 	</body>
 </html>
