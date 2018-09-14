@@ -1,7 +1,8 @@
 <?php
-	//TODO: verify hash and input message
-	$poshash = $_GET["hash"];
-	if (!isset($poshash))
+	//TODO: test
+	$posnum = $_GET["num"];
+	$message = $_GET["message"];
+	if (!isset($posnum) || !isset($message) || strlen($message) > 100)
 	{
 		echo("leave");
 		exit();
@@ -12,11 +13,21 @@
 		fwrite($file, $input . "\n");
 		fclose($file);
 	}
-	function readfile2($name)
+		function readfile2($name)
 	{
 		$file = fopen($name, "r");
 		$contents = fread($file, filesize($name));
 		fclose($file);
+		return $contents;
+	}
+	function readfile3($name, $i)
+	{
+		//$file = fopen($name, "r");
+		//$contents = fread($file, filesize($name));
+		//fclose($file);
+		$file = new SplFileObject($name);
+		$file->seek($i);
+		$contents = $file->current();
 		return $contents;
 	}
 	function increment($name)
@@ -27,13 +38,19 @@
 		fwrite($file, $num);
 		fclose($file);
 	}
-	$message = "first message";
 	$hash1 = hash("sha256", $message);
-	$ranint = rand(0, 100000000000);
-	$ranhash = hash("sha256", $ranint);
-	writefile($message, "messages.bc");
-	writefile($hash1, "hashes.bc");
-	writefile($ranhash, "guesses.bc");
+	$ranhash = hash("sha256", $posnum);
+	if (readfile2(guesses.bc) == $ranhash)
+	{
+		writefile($message, "messages.bc");
+		writefile($hash1, "hashes.bc");
+		writefile(rand(0, 100000000000), "guesses.bc");
+	}
+	else
+	{
+		echo("hash mismatch");
+		exit();
+	}
 	echo($ranhash);
 ?>
 <html>
