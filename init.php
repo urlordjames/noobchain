@@ -3,7 +3,7 @@
 	{
 		$file = fopen($name, w);
 		fwrite($file, $input + "\n");
-		fclose($mfile);
+		fclose($file);
 	}
 	$message = "first message";
 	$hash1 = "db01a79b2801d711bc69a0ad143def4bca4b5e4e6f1d7d63492590607b14ea35";
