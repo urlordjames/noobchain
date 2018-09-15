@@ -9,5 +9,3 @@ be aware that sending messages over 100 characters is a waste of time and comput
 # install
 install python3.6
 `pip install requests`
-`pip install random`
-`pip install hashlib`
