@@ -47,7 +47,7 @@
 	{
 		$blacklist = array("/", "<", ">", "#", ";", ":");
 		$message = str_replace($blacklist, "", $message);
-		writefile($message, "messages.bc");
+		writefile($message . "<br>", "messages.bc");
 		writefile($hash1, "hashes.bc");
 		writefile2(hash("sha256", rand(0, 1000000)), "guesses.bc");
 	}

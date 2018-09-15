@@ -10,6 +10,6 @@
 		<link rel="shortcut icon" type="image/x-icon" href="https://urlordjames.ga/favicon.ico">
 	</head>
 	<body>
-		welcome my friends
+		<!--send help-->
 	</body>
 </html>
