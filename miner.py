@@ -1,5 +1,4 @@
 import requests
-import random
 import hashlib
 numhash = requests.get("https://urlordjames.ga/noobchain/guesses.bc").text
 prevhashes = requests.get("https://urlordjames.ga/noobchain/hashes.bc").text
@@ -17,13 +16,13 @@ while not numhash == guesshash:
         print(guess)
         print(guesshash)
         exit()
-    guess += 1 #random.randint(0, int(diff))
+    guess += 1  # random.randint(0, int(diff))
 guess -= 1
 print("gotem")
 print(guess)
 print(guesshash)
-data= {
-    "num":guess,
-    "message":message
-    }
+data = {
+    "num": guess,
+    "message": message
+}
 requests.get("https://urlordjames.ga/noobchain/contribute.php", data)
