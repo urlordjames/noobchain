@@ -19,7 +19,7 @@
 		fwrite($file, $input);
 		fclose($file);
 	}
-		function readfile2($name)
+	function readfile2($name)
 	{
 		$file = fopen($name, "r");
 		$contents = fread($file, filesize($name));
@@ -49,7 +49,7 @@
 		$message = str_replace($blacklist, "", $message);
 		writefile($message . "<br>", "messages.bc");
 		writefile($hash1, "hashes.bc");
-		writefile2(hash("sha256", rand(0, 1000000000) . hash("sha256", readfile2("hashes.bc"))), "guesses.bc");
+		writefile2(hash("sha256", rand(0, readfile2("difficulty.bc")) . hash("sha256", readfile2("hashes.bc"))), "guesses.bc");
 		writefile("9", "difficulty.bc");
 	}
 	else

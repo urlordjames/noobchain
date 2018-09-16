@@ -1,7 +1,7 @@
 <?php
 	$message = "first message\n<br>";
 	$hash1 = hash("sha256", $message);
-	$ranint = rand(0, 1000000000);
+	$ranint = rand(0, 9);
 	$ranhash = hash("sha256", $ranint);
 	function writefile($input, $name)
 	{
