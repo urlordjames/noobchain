@@ -24,5 +24,5 @@ print(guesshash)
 data = {
     "num": guess,
     "message": message
-    }
+}
 requests.get("https://urlordjames.ga/noobchain/contribute.php", data)
