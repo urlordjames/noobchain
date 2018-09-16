@@ -10,13 +10,17 @@ guesshash = ""
 print(numhash)
 message = input("message to send\n")
 while not numhash == guesshash:
-    guess +=1 #random.randint(0, int(diff))
     guesshash2 = hashlib.sha256(str(guess).encode()).hexdigest() + hashlib.sha256(str(prevhashes).encode()).hexdigest()
     guesshash = hashlib.sha256(str(guesshash2).encode()).hexdigest()
     if guess > int(diff):
         print("something is wrong")
+        print(guess)
+        print(guesshash)
         exit()
+    guess += 1 #random.randint(0, int(diff))
+guess -= 1
 print("gotem")
+print(guess)
 print(guesshash)
 data= {
     "num":guess,
