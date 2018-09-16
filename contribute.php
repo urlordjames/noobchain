@@ -19,6 +19,12 @@
 		fwrite($file, $input);
 		fclose($file);
 	}
+	function writefile_no_newline($input, $name)
+	{
+		$file = fopen($name, "a+");
+		fwrite($file, $input);
+		fclose($file);
+	}
 	function readfile2($name)
 	{
 		$file = fopen($name, "r");
@@ -43,14 +49,14 @@
 	}
 	$hash1 = hash("sha256", $message);
 	$ranhash = hash("sha256", $posnum);
-	if (readfile2("guesses.bc") == $ranhash)
+	if (readfile2("guesses.bc") == hash("sha256", $ranhash . hash("sha256", readfile2("hashes.bc"))))
 	{
 		$blacklist = array("/", "<", ">", "#", ";", ":");
 		$message = str_replace($blacklist, "", $message);
 		writefile($message . "<br>", "messages.bc");
 		writefile($hash1, "hashes.bc");
-		writefile2(hash("sha256", rand(0, readfile2("difficulty.bc")) . hash("sha256", readfile2("hashes.bc"))), "guesses.bc");
-		writefile("9", "difficulty.bc");
+		writefile2(hash("sha256", hash("sha256", rand(0, readfile2("difficulty.bc"))) . hash("sha256", readfile2("hashes.bc"))), "guesses.bc");
+		writefile_no_newline("9", "difficulty.bc");
 	}
 	else
 	{
