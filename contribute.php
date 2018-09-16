@@ -50,6 +50,7 @@
 		writefile($message . "<br>", "messages.bc");
 		writefile($hash1, "hashes.bc");
 		writefile2(hash("sha256", rand(0, 1000000000) . hash("sha256", readfile2("hashes.bc"))), "guesses.bc");
+		writefile("9", "difficulty.bc");
 	}
 	else
 	{

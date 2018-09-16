@@ -13,6 +13,7 @@
 	writefile($hash1, "hashes.bc");
 	writefile($ranhash, "guesses.bc");
 	writefile($ranint, "origin.bc");
+	writefile(9, "difficulty.bc");
 	echo($ranhash);
 ?>
 <html>
