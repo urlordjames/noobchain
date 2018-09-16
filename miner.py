@@ -8,7 +8,7 @@ guesshash = ""
 print(numhash)
 message = input("message to send\n")
 while not numhash == guesshash:
-    guess = random.randint(0, diff)
+    guess = random.randint(0, int(diff))
     guesshash = hashlib.sha256(str(guess).encode()).hexdigest()
     #print(guesshash + "\n" + str(guess))
 print("gotem")
