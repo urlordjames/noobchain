@@ -3,6 +3,7 @@
 	$messages = fread($mfile, filesize("messages.bc"));
 	fclose($mfile);
 	echo($messages . "<br>");
+	//TODO: add a monospace font with css
 ?>
 <html>
 	<head>

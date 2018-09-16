@@ -7,9 +7,9 @@ guesshash = ""
 print(numhash)
 message = input("message to send\n")
 while not numhash == guesshash:
-    guess = random.randint(0, 1000000)
+    guess = random.randint(0, 1000000000)
     guesshash = hashlib.sha256(str(guess).encode()).hexdigest()
-    print(guesshash + "\n" + str(guess))
+    #print(guesshash + "\n" + str(guess))
 print("gotem")
 data= {
     "num":guess,
