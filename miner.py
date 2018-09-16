@@ -14,7 +14,7 @@ while not numhash == guesshash:
     guesshash2 = hashlib.sha256(str(guess).encode()).hexdigest() + hashlib.sha256(str(prevhashes).encode()).hexdigest()
     guesshash = hashlib.sha256(str(guesshash2).encode()).hexdigest()
     if guess > int(diff):
-        print(something is wrong)
+        print("something is wrong")
         exit()
 print("gotem")
 print(guesshash)
