@@ -1,5 +1,4 @@
 <?php
-	//TODO: test
 	$ranhash = $_GET["num"];
 	$message = $_GET["message"];
 	if (!isset($ranhash) || !isset($message) || !strlen($message) > 100)
@@ -32,13 +31,6 @@
 		fclose($file);
 		return $contents;
 	}
-	function readfile3($name, $i)
-	{
-		$file = new SplFileObject($name);
-		$file->seek($i);
-		$contents = $file->current();
-		return $contents;
-	}
 	function increment($name)
 	{
 		$str = readfile2($name);
@@ -57,7 +49,6 @@
 		writefile($message . "<br>", "messages.bc");
 		writefile($hash1, "hashes.bc");
 		writefile2(hash("sha256", hash("sha256", $newval) . hash("sha256", readfile2("hashes.bc"))), "guesses.bc");
-		//writefile2($newval, "origin.bc");
 		}
 	else
 	{
@@ -69,7 +60,7 @@
 ?>
 <html>
 	<head>
-		<title>noobchain init</title>
+		<title>noobchain contribute</title>
 		<link rel="shortcut icon" type="image/x-icon" href="https://urlordjames.ga/favicon.ico">
 	</head>
 	<body>
