@@ -32,9 +32,9 @@
 			echo "wtf did you do?";
 		}
 	}
-	$pass = $_POST["auth"];
+	$pass = $_POST["pass"];
 	$capresponse = $_POST["g-recaptcha-response"];
-	if (!verify($capresponse) || !hash("sha512", $pass) == "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e")
+	if (!verify($capresponse) || hash("sha512", $pass) != "3dca0a5cfbcb2015e1833e2ea3cb7d961a0705c85b101da07e80d9a7685b494d11a4aeb35db9423b6fddcd799c421f6086c64c7c516325ac2f0324e2120fd859")
 	{
 		echo("go away");
 		exit();
